@@ -43,7 +43,7 @@ const Card = () => {
                 password,
                 gender
             })
-          setDescribe()
+          setDescribe("My name is")
           setDescribeInfo(title+" "+first+ " "+last)
            
         }
@@ -65,12 +65,14 @@ const Card = () => {
         }=user
     return (
         <div  className="container">
-            <div> 
-                <img src={large} alt="" /> 
-            </div>
-            <div className="info">
-                <p> {describe}</p>
-                 <p> {describeInfo}</p>
+            <div className='top-container'>
+                <div> 
+                    <img  className="topImage"src={large} alt="" /> 
+                </div>
+                <div className="info">
+                    <p> {describe}</p>
+                    <span> {describeInfo}</span>
+                </div>
             </div>
             <div className="icon">
                 <div 
