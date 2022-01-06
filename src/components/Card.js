@@ -9,13 +9,20 @@ import map from "../assets/map.svg";
 import padlock from "../assets/padlock.svg";
 import growingupMan from "../assets/growing-up-man.svg";
 import growingupWoman from "../assets/growing-up-woman.svg";
+import Table from './Table';
 
 
 const Card = () => {
     const [user, setUser] = useState([])
     const [describe,setDescribe]=useState("My Name is ")
     const[ describeInfo,setDescribeInfo]=useState("")
+    const [addUser,setAddUser] = useState([])
 
+    const handleUser = () =>{
+        addUser.includes(user) ? alert("bu kullanıcı var"):
+        setAddUser([...addUser,user])
+
+    }
     const getData =async ()=>{
                 const datas = await axios("https://randomuser.me/api/")
             .then((res)=> res.data.results[0])
@@ -128,8 +135,9 @@ const Card = () => {
             </div>
             <div className='buttons'>
                 <button onClick={getData}>NEW USER</button>
-                <button >ADD USER</button>
+                <button onClick={handleUser}>ADD USER</button>
             </div><br />
+            <Table addUser ={addUser}/>
             
         </div>
             
