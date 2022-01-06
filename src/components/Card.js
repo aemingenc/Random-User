@@ -19,6 +19,7 @@ const Card = () => {
     const getData =async ()=>{
                 const datas = await axios("https://randomuser.me/api/")
             .then((res)=> res.data.results[0])
+            .catch((err)=> console.log(err))
             // console.log(datas)
             const{
                 name:{title,first,last},
